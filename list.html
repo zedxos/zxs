@@ -1,0 +1,329 @@
+<!DOCTYPE html> <!--TODO UPDATE THE FILES AGAIN ALSO IN EXAMPLE 7 CHANGE THE PHOTO-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Websites 🌸</title>
+    <style>
+        body {
+            background: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #3a3a3a;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(200, 180, 255, 0.08);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            color: #a78bfa;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .link-item {
+            display: flex;
+            align-items: center;
+            background: #f3f4f6;
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            transition: box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(167, 139, 250, 0.04);
+            cursor: pointer;
+        }
+        .link-item:hover {
+            box-shadow: 0 4px 16px rgba(167, 139, 250, 0.10);
+            background: #ede9fe;
+        }
+        .link-img {
+            width: 56px;
+            height: 56px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 1rem;
+            background: #e0e7ff;
+            flex-shrink: 0;
+        }
+        .link-content {
+            flex: 1;
+        }
+        .link-title {
+            font-size: 1.1rem;
+            color: #7c3aed;
+            margin: 0 0 0.2rem 0;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .link-item:hover .link-title {
+            color: #a78bfa;
+        }
+        .link-desc {
+            font-size: 0.97rem;
+            color: #6b7280;
+            margin: 0;
+        }
+        /* Modal styles */
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0; right: 0; bottom: 0;
+            background: rgba(160, 140, 255, 0.18);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-backdrop.active {
+            display: flex;
+        }
+        .modal {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(167, 139, 250, 0.18);
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            max-width: 95vw;
+            width: 350px;
+            text-align: center;
+            position: relative;
+            animation: popin 0.25s;
+        }
+        @keyframes popin {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .modal-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 14px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            background: #e0e7ff;
+        }
+        .modal-title {
+            font-size: 1.3rem;
+            color: #7c3aed;
+            margin: 0.5rem 0 0.3rem 0;
+            font-weight: 700;
+        }
+        .modal-desc {
+            color: #6b7280;
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+        }
+        .visit-btn {
+            background: #a78bfa;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 0.7rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .visit-btn:hover {
+            background: #7c3aed;
+        }
+        .close-modal {
+            position: absolute;
+            top: 0.7rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #a78bfa;
+            cursor: pointer;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 0.5rem;
+            }
+            .link-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .link-img {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+            .modal {
+                width: 95vw;
+                padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+            }
+            .modal-img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Example Websites 🌸</h1>
+        <div class="link-list">
+            <div class="link-item"
+                data-title="Example 7"
+                data-img="assets/example7.png"
+                data-link="https://zx7.onrender.com"
+                data-desc="Play a mini game first to open the love letter!">
+                <img class="link-img" src="assets/example7.png" alt="Example 7">
+                <div class="link-content">
+                    <span class="link-title">Example 7</span>
+                    <p class="link-desc">Play a mini game first to open the love letter!</p>
+                </div>
+            </div>
+            <div class="link-item"
+                data-title="Example 6"
+                data-img="assets/example6.png"
+                data-link="https://zx6.onrender.com"
+                data-desc="Name your loved one and set up a date!">
+                <img class="link-img" src="assets/example6.png" alt="Example 6">
+                <div class="link-content">
+                    <span class="link-title">Example 6</span>
+                    <p class="link-desc">Name your loved one and set up a date!</p>
+                </div>
+            </div>
+            <div class="link-item"
+                data-title="Example 8"
+                data-img="assets/example8.png"
+                data-link="https://zx8.onrender.com"
+                data-desc="Clever questions to say sorry!">
+                <img class="link-img" src="assets/example8.png" alt="Example 8">
+                <div class="link-content">
+                    <span class="link-title">Example 8</span>
+                    <p class="link-desc">Clever questions to say sorry!</p>
+                </div>
+            </div>
+            <div class="link-item"
+                data-title="Example 9"
+                data-img="assets/example9.png"
+                data-link="https://zx9.onrender.com"
+                data-desc="Answer the questions to open the love letter!">
+                <img class="link-img" src="assets/example9.png" alt="Example 9">
+                <div class="link-content">
+                    <span class="link-title">Example 9</span>
+                    <p class="link-desc">Answer the questions to open the love letter!</p>
+                </div>
+            </div>
+            <div class="link-item"
+                data-title="Example 10"
+                data-img="assets/example10.png"
+                data-link="https://zx10.onrender.com"
+                data-desc="A simple and cute love letter!">
+                <img class="link-img" src="assets/example10.png" alt="Example 10">
+                <div class="link-content">
+                    <span class="link-title">Example 10</span>
+                    <p class="link-desc">A simple and cute love letter!</p>
+                </div>
+            </div>
+            <div class="link-item"
+                data-title="Example 3"
+                data-img="assets/example3.png"
+                data-link="https://zx3.onrender.com"
+                data-desc="Grow the seed to open the love letter!">
+                <img class="link-img" src="assets/example3.png" alt="Example 3">
+                <div class="link-content">
+                    <span class="link-title">Example 3</span>
+                    <p class="link-desc">Grow the seed to open the love letter!</p>
+                </div>
+            </div>
+            <div class="link-item"
+                data-title="Example 4"
+                data-img="assets/example4.png"
+                data-link="https://zx4.onrender.com"
+                data-desc="A photo memories.">
+                <img class="link-img" src="assets/example4.png" alt="Example 4">
+                <div class="link-content">
+                    <span class="link-title">Example 4</span>
+                    <p class="link-desc">A photo memories.</p>
+                </div>
+            </div>
+            <div class="link-item"
+                data-title="Example 5"
+                data-img="assets/example5.png"
+                data-link="https://zx5.onrender.com"
+                data-desc="A love generator for your loved one!">
+                <img class="link-img" src="assets/example5.png" alt="Example 5">
+                <div class="link-content">
+                    <span class="link-title">Example 5</span>
+                    <p class="link-desc">A love generator for your loved one!</p>
+                </div>
+            </div>
+            <div class="link-item"
+                data-title="Example 1"
+                data-img="assets/example1.png"
+                data-link="https://zx1.onrender.com"
+                data-desc="How to force your crush to say yes!">
+                <img class="link-img" src="assets/example1.png" alt="Example 1">
+                <div class="link-content">
+                    <span class="link-title">Example 1</span>
+                    <p class="link-desc">How to force your crush to say yes!</p>
+                </div>
+            </div>
+            <div class="link-item"
+                data-title="Example 2"
+                data-img="assets/example2.png"
+                data-link="https://zx2.onrender.com"
+                data-desc="A simple and cute love letter!">
+                <img class="link-img" src="assets/example2.png" alt="Example 2">
+                <div class="link-content">
+                    <span class="link-title">Example 2</span>
+                    <p class="link-desc">A simple and cute love letter!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal-backdrop" id="_modalBackdrop">
+        <div class="modal" id="_modal">
+            <button class="close-modal" id="_closeModalBtn" title="Close">&times;</button>
+            <img class="modal-img" id="_modalImg" src="" alt="Website Image">
+            <div class="modal-title" id="_modalTitle"></div>
+            <div class="modal-desc" id="_modalDesc"></div>
+            <a class="visit-btn" id="_modalVisitBtn" href="#" target="_blank">Visit</a>
+        </div>
+    </div>
+    <script>
+        // Modal logic
+        const _modalBackdrop = document.getElementById('_modalBackdrop');
+        const _modalImg = document.getElementById('_modalImg');
+        const _modalTitle = document.getElementById('_modalTitle');
+        const _modalDesc = document.getElementById('_modalDesc');
+        const _modalVisitBtn = document.getElementById('_modalVisitBtn');
+        const _closeModalBtn = document.getElementById('_closeModalBtn');
+
+        document.querySelectorAll('.link-item').forEach(_item => {
+            _item.addEventListener('click', () => {
+                _modalImg.src = _item.getAttribute('data-img');
+                _modalTitle.textContent = _item.getAttribute('data-title');
+                _modalDesc.textContent = _item.getAttribute('data-desc');
+                _modalVisitBtn.href = _item.getAttribute('data-link');
+                _modalBackdrop.classList.add('active');
+            });
+        });
+
+        _closeModalBtn.addEventListener('click', () => {
+            _modalBackdrop.classList.remove('active');
+        });
+
+        // Close modal when clicking outside the modal box
+        _modalBackdrop.addEventListener('click', (e) => {
+            if (e.target === _modalBackdrop) {
+                _modalBackdrop.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
